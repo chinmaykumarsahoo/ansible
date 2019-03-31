@@ -1,0 +1,6 @@
+# ansible Ping module
+---
+- hosts: all
+  tasks:
+  - name: Execute ansible ping
+    ping:
