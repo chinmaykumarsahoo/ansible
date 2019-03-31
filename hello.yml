@@ -1,6 +1,11 @@
 # ansible Ping module
 ---
 - hosts: all
+  become: yes
   tasks:
   - name: Execute ansible ping
-    ping:
+    ping:  # Ping module
+  - name: Update packages on ubuntu
+    apt:
+      name: tree # Install git 
+      update_cache: yes # same as sudo apt-get update
