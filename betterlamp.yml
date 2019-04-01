@@ -44,6 +44,9 @@
     get_url:
       url: https://raw.githubusercontent.com/chinmaykumarsahoo/ansible/master/info.php
       dest: /var/www/html/info.php
+    notify:
+    - restart apache2
+    - restart httpd
   handlers:
   - name: restart apache
     service:
