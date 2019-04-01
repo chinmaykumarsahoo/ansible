@@ -10,6 +10,7 @@
       state: present
     notify:
     - restart apache
+    when: ansible_os_family == "Debian"
   - name: Install php packages
     apt:
       name: "{{ item }}"
@@ -21,13 +22,11 @@
       - php-mysql
     notify:
     - restart apache
-  - name: Create a File
-    file:
-      path: /var/www/html/info.php
-      state: file
+    when: ansible_os_family == "Debian"
   handlers:
   - name: restart apache
     service:
       name: apache2
       enabled: yes
-      state: restarted  
+      state: restarted
+    when: ansible_os_family == "Debian"
